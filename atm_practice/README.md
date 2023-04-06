@@ -1,6 +1,6 @@
 # README
 
-You are to create a class object called Glass that has the following features:
+You are to create a class object called ATM that has the following features:
 
 1. Allows the user to create an ATM that stores their first name and last name.
 2. It should default to not being overdraft and a balance of 0.
