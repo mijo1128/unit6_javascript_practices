@@ -8,10 +8,10 @@ describe('Glass', () => {
 
     it ('add water to glass', () => {
         const glass = new Glass(100)
-        
+
         expect(glass.amount).toBe(0)
-        glass.addWater(50)
-        expect(glass.amount).toBe(50)
+        glass.addWater(75)
+        expect(glass.amount).toBe(75)
     });
 
     it ('add water more than capacity should equal capacity', () => {
