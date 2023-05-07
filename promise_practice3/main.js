@@ -55,3 +55,30 @@ function getCurrentlySelectedMovie() {
 
 // ================= DO NOT CHANGE CODE ABOVE ^ ===== WRITE YOUR CODE BELOW ================
 
+
+fetch('./fake_api/days.json')
+    .then(res => res.json())
+        .then(rawData => populateDaySelect(rawData))
+
+fetch('./fake_api/movies.json')
+    .then(res => res.json())
+        .then(rawData => populateMovieSelect(rawData))
+
+daySelect.addEventListener('change', function() {
+    fetch(`./fake_api/movie_times/${getCurrentlySelectedMovie().acronym}/${getCurrentlySelectedDay().dayOfWeek}/movie_times.json`)
+        .then(res => res.json())
+            .then(rawData => {
+                populateMovieInfo(getCurrentlySelectedMovie())
+                populateMovieTimes(rawData)
+            })
+})
+
+movieSelect.addEventListener('change', function() {
+    console.log(getCurrentlySelectedDay().dayOfWeek, getCurrentlySelectedMovie().acronym)
+    fetch(`./fake_api/movie_times/${getCurrentlySelectedMovie().acronym}/${getCurrentlySelectedDay().dayOfWeek}/movie_times.json`)
+        .then(res => res.json())
+            .then(rawData => {
+                populateMovieInfo(getCurrentlySelectedMovie())
+                populateMovieTimes(rawData)
+            })
+})
